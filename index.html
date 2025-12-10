@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menan - Research Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'hand': ['"Architects Daughter"', 'cursive'], // Display/Titles
+              'sans': ['"Architects Daughter"', 'cursive'], // Body text
+            },
+            colors: {
+              'paper': '#fdfbf7', // Warm off-white
+              'ink': '#2d2d2d',   // Soft black
+              'charcoal': '#4a4a4a'
+            },
+            boxShadow: {
+              'sketch': '2px 2px 0px 0px rgba(0,0,0,0.1)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #fdfbf7;
+        color: #2d2d2d;
+        font-family: 'Architects Daughter', cursive;
+        font-size: 1.15rem; /* Slightly adjusted size for this specific font */
+        line-height: 1.7;
+      }
+      
+      h1, h2, h3, h4, h5, h6, button, .font-display {
+        font-family: 'Architects Daughter', cursive;
+        font-weight: 400; /* Architects daughter is bold by nature */
+      }
+      
+      /* Minimalist Sketch Utilities */
+      .sketch-border {
+        border: 2px solid #2d2d2d;
+        border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+      }
+
+      .sketch-border-round {
+         border: 2px solid #2d2d2d;
+         border-radius: 50% 55% 45% 50% / 55% 45% 55% 45%; 
+      }
+      
+      .sketch-underline {
+        position: relative;
+        display: inline-block;
+      }
+      .sketch-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(-0.5deg);
+        border-radius: 50%;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
