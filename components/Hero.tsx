@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         >
           {/* Profile Picture */}
           <img 
-            src="/IMG-20251001-WA0014.jpg" 
+            src={`${import.meta.env.BASE_URL}IMG-20251001-WA0014.jpg`}
             alt={PROFILE.name}
             className="w-full h-full object-cover"
             style={{

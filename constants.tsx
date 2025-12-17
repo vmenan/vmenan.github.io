@@ -19,7 +19,7 @@ export const PROFILE = {
   name: 'Menan Velayuthan.',
   role: 'Researcher & PhD Candidate',
   path: '$ pwd\n/PhD/Netherlands/UtrechtUniversity/NLPandSocietyLab/DataDivers',
-  bio: 'I research the intersection of Natural Language Processing and societal structures. My work focuses on building tools and theories for the future of ethical computing.',
+  bio: 'I am a PhD candidate at the NLP & Society Lab, Utrecht University, focusing on data diversity in training robust and fair language models. I am passionate about making AI more inclusive and equitable.',
   };
 export const QUOTES = [
   {
