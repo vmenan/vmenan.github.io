@@ -18,9 +18,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const PROFILE = {
   name: 'Menan Velayuthan.',
   role: 'Researcher & PhD Candidate',
+  badge: {
+    title: 'PyTorch Ambassador 2025-2026',
+    credlyUrl: 'https://www.credly.com/badges/d0909cda-b87b-4ca8-8ddf-722d23c108ab/public_url'
+  },
   path: '$ pwd\n/PhD/Netherlands/UtrechtUniversity/NLPandSocietyLab/DataDivers',
   bio: 'I am a PhD candidate at the NLP & Society Lab, Utrecht University, focusing on data diversity in training robust and fair language models. I am passionate about making AI more inclusive and equitable.',
-  };
+};
 export const QUOTES = [
   {
     text: '"Beneath this mask, there is more than flesh. Beneath this mask there is an idea, Mr. Creedy, and ideas are bulletproof."',

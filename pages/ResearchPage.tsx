@@ -46,6 +46,56 @@ const ResearchPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Recognition & Honors */}
+        <section className="mb-20">
+          <h2 className="text-4xl font-hand font-bold mb-10">Recognition & Honors</h2>
+          
+          <div className="relative pl-8 md:pl-12 space-y-6">
+            {/* Timeline line */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-200" style={{
+              transform: 'translateX(10px)'
+            }} />
+
+            {/* PyTorch Ambassador */}
+            <div className="relative">
+              {/* Timeline dot */}
+              <div className="absolute -left-8 md:-left-12 top-3 w-5 h-5 rounded-full bg-orange-500 border-4 border-cream" style={{
+                boxShadow: '0 0 0 2px #f97316'
+              }} />
+
+              <div 
+                className="bg-gradient-to-br from-white to-orange-50 p-6 rounded-lg border-l-4 border-orange-500 hover:shadow-lg transition-all"
+                style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.05)' }}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="font-hand text-xl font-bold text-gray-800 mb-2">
+                      PyTorch Ambassador
+                    </h3>
+                    <p className="font-mono text-sm text-gray-600 mb-3">
+                      2025-2026
+                    </p>
+                    <p className="font-hand text-base text-gray-700 leading-relaxed">
+                      Selected as a PyTorch Ambassador to support and grow the PyTorch community through education, advocacy, and technical contributions.
+                    </p>
+                    <a 
+                      href="https://www.credly.com/badges/d0909cda-b87b-4ca8-8ddf-722d23c108ab/public_url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-orange-600 hover:text-orange-800 transition-colors mt-3"
+                    >
+                      VIEW BADGE →
+                    </a>
+                  </div>
+                  <div className="flex-shrink-0 text-4xl">
+                    🔥
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Current Projects */}
         <section className="mb-20">
           <h2 className="text-4xl font-hand font-bold mb-10">Current Projects</h2>
