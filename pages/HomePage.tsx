@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import News from '../components/News';
+import Quotes from '../components/Quotes';
 
 const HomePage: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <News />
+        <Quotes />
       </main>
       
       <footer className="py-12 text-center text-gray-400 font-hand text-sm">

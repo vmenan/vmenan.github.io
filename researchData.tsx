@@ -86,15 +86,7 @@ export const PROJECTS: Project[] = [
 
 export const COLLABORATIONS: Collaboration[] = [
   {
-    name: 'NLP & Society Lab, Utrecht University',
-    description: ''
-  },
-  {
-    name: 'Your Collaboration Partner',
-    description: ''
-  },
-  {
-    name: 'Another Research Group',
-    description: ''
+    name: 'Collaboration with University of Jaffna',
+    description: 'I have collaborated with Dr Kengatharaiyer Sarveswaran on improving language modeling for complex scripted languages better.'
   }
 ];

@@ -1,9 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
-import { FileText, ExternalLink, Award } from 'lucide-react';
+import { ExternalLink, Award, ChevronDown, ChevronUp } from 'lucide-react';
 import { PUBLICATIONS } from '../researchData';
 
 const PublicationsPage: React.FC = () => {
+  // Sort and group publications by year
+  const sortedPubs = [...PUBLICATIONS].sort((a, b) => {
+    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                        'july', 'august', 'september', 'october', 'november', 'december'];
+    
+    const yearA = parseInt(a.date.match(/\d{4}/)?.[0] || '0');
+    const yearB = parseInt(b.date.match(/\d{4}/)?.[0] || '0');
+    
+    const monthA = monthNames.findIndex(m => a.date.toLowerCase().includes(m)) + 1 || 0;
+    const monthB = monthNames.findIndex(m => b.date.toLowerCase().includes(m)) + 1 || 0;
+    
+    if (yearB !== yearA) return yearB - yearA;
+    return monthB - monthA;
+  });
+
+  // Group by year
+  const pubsByYear: { [year: string]: typeof PUBLICATIONS } = {};
+  sortedPubs.forEach(pub => {
+    const year = pub.date.match(/\d{4}/)?.[0] || 'Unknown';
+    if (!pubsByYear[year]) pubsByYear[year] = [];
+    pubsByYear[year].push(pub);
+  });
+
+  const sortedYears = Object.keys(pubsByYear).sort((a, b) => parseInt(b) - parseInt(a));
+  const currentYear = new Date().getFullYear().toString();
+  
+  // Determine default expanded year: current year if has pubs, else previous year
+  const defaultExpandedYear = pubsByYear[currentYear] && pubsByYear[currentYear].length > 0 
+    ? currentYear 
+    : sortedYears[0];
+
+  const [expandedYears, setExpandedYears] = useState<Set<string>>(new Set([defaultExpandedYear]));
+
+  const toggleYear = (year: string) => {
+    setExpandedYears(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(year)) {
+        newSet.delete(year);
+      } else {
+        newSet.add(year);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-cream selection:bg-yellow-200 w-full">
       <Header />
@@ -21,36 +66,17 @@ const PublicationsPage: React.FC = () => {
 
         {/* Publications Section - Year Grouped Timeline */}
         <section className="mb-20">
-          {(() => {
-            // Sort and group publications by year
-            const sortedPubs = [...PUBLICATIONS].sort((a, b) => {
-              const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
-                                  'july', 'august', 'september', 'october', 'november', 'december'];
-              
-              const yearA = parseInt(a.date.match(/\d{4}/)?.[0] || '0');
-              const yearB = parseInt(b.date.match(/\d{4}/)?.[0] || '0');
-              
-              const monthA = monthNames.findIndex(m => a.date.toLowerCase().includes(m)) + 1 || 0;
-              const monthB = monthNames.findIndex(m => b.date.toLowerCase().includes(m)) + 1 || 0;
-              
-              if (yearB !== yearA) return yearB - yearA;
-              return monthB - monthA;
-            });
-
-            // Group by year
-            const pubsByYear: { [year: string]: typeof PUBLICATIONS } = {};
-            sortedPubs.forEach(pub => {
-              const year = pub.date.match(/\d{4}/)?.[0] || 'Unknown';
-              if (!pubsByYear[year]) pubsByYear[year] = [];
-              pubsByYear[year].push(pub);
-            });
-
-            return Object.entries(pubsByYear)
-              .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA)) // Sort years descending
-              .map(([year, pubs]) => (
-              <div key={year} className="mb-16">
-                {/* Year Header */}
-                <div className="flex items-center gap-4 mb-8">
+          {sortedYears.map((year) => {
+            const pubs = pubsByYear[year];
+            const isExpanded = expandedYears.has(year);
+            
+            return (
+              <div key={year} className="mb-12">
+                {/* Year Header - Clickable */}
+                <button
+                  onClick={() => toggleYear(year)}
+                  className="w-full flex items-center gap-4 mb-8 group hover:opacity-80 transition-opacity"
+                >
                   <div className="text-6xl font-hand font-bold text-gray-800" style={{
                     textShadow: '3px 3px 0px rgba(0,0,0,0.1)'
                   }}>
@@ -59,9 +85,13 @@ const PublicationsPage: React.FC = () => {
                   <div className="flex-1 h-1 bg-gradient-to-r from-black to-transparent rounded-full" style={{
                     transform: 'rotate(-0.5deg)'
                   }} />
-                </div>
+                  <div className="text-gray-600">
+                    {isExpanded ? <ChevronUp className="w-8 h-8" /> : <ChevronDown className="w-8 h-8" />}
+                  </div>
+                </button>
 
                 {/* Publications for this year */}
+                {isExpanded && (
                 <div className="relative pl-8 md:pl-12 space-y-6">
                   {/* Timeline line */}
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-200" style={{
@@ -133,9 +163,10 @@ const PublicationsPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
+                )}
               </div>
-            ));
-          })()}
+            );
+          })}
         </section>
 
       </main>

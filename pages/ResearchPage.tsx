@@ -94,11 +94,14 @@ const ResearchPage: React.FC = () => {
               I actively collaborate with researchers and institutions around the world. 
               Current partnerships include:
             </p>
-            <ul className="space-y-3 font-hand text-lg text-gray-700">
+            <ul className="space-y-4 font-hand text-lg text-gray-700">
               {COLLABORATIONS.map((collab, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <span className="text-yellow-500 mt-1">→</span>
-                  <span>{collab.name}</span>
+                  <div>
+                    <span className="font-bold">{collab.name}</span>
+                    <p className="text-gray-600 mt-1">{collab.description}</p>
+                  </div>
                 </li>
               ))}
             </ul>

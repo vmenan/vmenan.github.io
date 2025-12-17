@@ -1,5 +1,5 @@
 import React from 'react';
-import { PROFILE, SOCIAL_LINKS } from '../constants';
+import { PROFILE } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -51,44 +51,6 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-xl font-hand leading-relaxed text-gray-800 pt-2 max-w-4xl">
             {PROFILE.bio}
           </p>
-        </div>
-
-        {/* Bottom Section: Actions (Left) and Quote (Right) */}
-        <div className="flex flex-col lg:flex-row gap-10 w-full items-center lg:items-end">
-          
-          {/* Left Column: Socials & Buttons */}
-          <div className="flex flex-col gap-6 shrink-0 lg:w-auto w-full items-center md:items-start">
-             {/* Social Icons */}
-            <div className="flex gap-6">
-              {SOCIAL_LINKS.map((link) => (
-                <a 
-                  key={link.platform} 
-                  href={link.url}
-                  className="text-gray-400 hover:text-black transition-colors"
-                  aria-label={link.platform}
-                >
-                  <link.icon className="w-6 h-6" />
-                </a>
-              ))}
-            </div>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 font-hand text-lg w-full sm:w-auto">
-              <button className="bg-gray-800 text-white px-8 py-3 rounded hover:bg-black transition-colors shadow-md whitespace-nowrap">
-                Get in touch
-              </button>
-              <button className="border-2 border-black bg-transparent px-8 py-3 rounded hover:bg-gray-100 transition-colors whitespace-nowrap">
-                View Research
-              </button>
-            </div>
-          </div>
-
-          {/* Right Column: Quote */}
-          <div className="flex-1 w-full lg:pl-10 pb-2">
-             <blockquote className="font-hand text-2xl md:text-3xl italic leading-tight text-gray-500 border-l-4 border-yellow-400 pl-6 py-2">
-                {PROFILE.quote}
-             </blockquote>
-          </div>
         </div>
 
       </div>
