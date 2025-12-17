@@ -3,11 +3,11 @@ import { PROFILE } from '../constants';
 
 const Hero: React.FC = () => {
   return (
-    <section className="flex flex-col md:flex-row items-start justify-start gap-12 mt-12 md:mt-20 px-6 md:px-12 w-full">
+    <section className="flex flex-col md:flex-row items-start justify-start gap-8 md:gap-12 mt-8 md:mt-20 px-4 md:px-12 w-full">
       
       {/* Avatar Circle - Hand-drawn Organic Style */}
       <div className="flex-shrink-0 mx-auto md:mx-0 relative">
-        <div className="relative w-64 h-64 md:w-72 md:h-72">
+        <div className="relative w-48 h-48 md:w-72 md:h-72">
           <div 
             className="w-full h-full border-[4px] border-black bg-gray-200 flex items-center justify-center overflow-hidden"
             style={{ 
@@ -35,12 +35,12 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 space-y-8 text-center md:text-left w-full">
-        <div className="space-y-6">
+      <div className="flex-1 space-y-6 md:space-y-8 text-center md:text-left w-full">
+        <div className="space-y-4 md:space-y-6">
           <div>
-            <h1 className="text-5xl md:text-6xl font-hand font-bold mb-2">{PROFILE.name}</h1>
-            <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start">
-              <p className="text-2xl font-hand text-gray-600">{PROFILE.role}</p>
+            <h1 className="text-4xl md:text-6xl font-hand font-bold mb-2">{PROFILE.name}</h1>
+            <div className="flex flex-wrap items-center gap-2 md:gap-3 justify-center md:justify-start">
+              <p className="text-xl md:text-2xl font-hand text-gray-600">{PROFILE.role}</p>
               {PROFILE.badge && (
                 <>
                   <span className="text-gray-400">|</span>
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
 
           {/* Terminal / Path block */}
           <div 
-            className="bg-gradient-to-br from-white to-yellow-50 border-2 border-black text-left inline-block overflow-hidden"
+            className="bg-gradient-to-br from-white to-yellow-50 border-2 border-black text-left inline-block overflow-hidden w-full md:w-auto"
             style={{ 
               borderRadius: '10px',
               transform: 'rotate(-0.5deg)',
@@ -81,14 +81,16 @@ const Hero: React.FC = () => {
                 <span className="text-orange-600 font-bold">$</span>
                 <span className="text-teal-600 font-semibold">pwd</span>
               </div>
-              <div className="text-purple-600 mt-1 whitespace-nowrap font-medium">
-                {PROFILE.path.split('\n')[1]}
+              <div className="text-purple-600 mt-1 font-medium overflow-x-auto">
+                <div className="whitespace-nowrap">
+                  {PROFILE.path.split('\n')[1]}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Bio */}
-          <p className="text-lg md:text-xl font-hand leading-relaxed text-gray-800 pt-2 max-w-4xl">
+          <p className="text-base md:text-xl font-hand leading-relaxed text-gray-800 pt-2 max-w-4xl">
             {(() => {
               let bioText = typeof PROFILE.bio === 'string' ? PROFILE.bio : PROFILE.bio.text;
               const links = typeof PROFILE.bio === 'object' ? PROFILE.bio.links : {};

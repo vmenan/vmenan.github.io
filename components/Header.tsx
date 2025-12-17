@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-cream shadow-lg md:hidden flex flex-col items-center py-6 space-y-4 z-50">
+        <div className="absolute top-20 right-6 bg-cream shadow-lg md:hidden flex flex-col items-end py-6 px-6 space-y-4 z-50 border-2 border-black rounded-lg">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
