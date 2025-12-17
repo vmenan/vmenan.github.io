@@ -2,11 +2,11 @@ import { Twitter, Github, Linkedin, Hash } from 'lucide-react';
 import { NavItem, NewsItem, SocialLink } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '#', isActive: true },
-  { label: 'Research', href: '#research' },
-  { label: 'Publications', href: '#publications' },
-  { label: 'Talks & Lectures', href: '#talks' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/', isActive: true },
+  { label: 'Research', href: '/research' },
+  { label: 'Publications', href: '/publications' },
+  { label: 'Talks & Lectures', href: '/talks' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [

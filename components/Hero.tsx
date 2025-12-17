@@ -5,21 +5,30 @@ const Hero: React.FC = () => {
   return (
     <section className="flex flex-col md:flex-row items-start justify-start gap-12 mt-12 md:mt-20 px-6 md:px-12 w-full">
       
-      {/* Avatar Circle - Clean Organic Style */}
+      {/* Avatar Circle - Hand-drawn Organic Style */}
       <div className="flex-shrink-0 mx-auto md:mx-0 relative w-64 h-64 md:w-72 md:h-72">
         <div 
-          className="w-full h-full border-[3px] border-black bg-gray-200 flex items-center justify-center overflow-hidden"
+          className="w-full h-full border-[4px] border-black bg-gray-200 flex items-center justify-center overflow-hidden"
           style={{ 
-            // Organic circle shape (slightly imperfect)
-            borderRadius: '56% 44% 52% 48% / 52% 52% 48% 48%',
-            transform: 'rotate(-2deg)',
-            boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.1)' 
+            // Hand-drawn, balanced organic circle
+            borderRadius: '54% 46% 52% 48% / 48% 54% 46% 52%',
+            transform: 'rotate(-3deg)',
+            boxShadow: '10px 12px 0px 0px rgba(0,0,0,0.1)',
+            // Slightly imperfect border for hand-drawn effect
+            border: '3.5px solid black',
           }}
         >
-            {/* Placeholder Text */}
-            <div className="font-hand text-7xl text-gray-500 opacity-70 select-none mt-2">
-              MV
-            </div>
+          {/* Profile Picture */}
+          <img 
+            src="/IMG-20251001-WA0014.jpg" 
+            alt={PROFILE.name}
+            className="w-full h-full object-cover"
+            style={{
+              filter: 'contrast(1.05) saturate(0.9)',
+              transform: 'rotate(2deg)',
+              objectPosition: 'center 20%',
+            }}
+          />
         </div>
       </div>
 

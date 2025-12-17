@@ -1,21 +1,16 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import News from './components/News';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ResearchPage from './pages/ResearchPage';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-cream selection:bg-yellow-200 w-full">
-      <Header />
-      <main>
-        <Hero />
-        <News />
-      </main>
-      
-      <footer className="py-12 text-center text-gray-400 font-hand text-sm">
-        <p>&copy; {new Date().getFullYear()} Menan Velayutham. All rights reserved.</p>
-      </footer>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/research" element={<ResearchPage />} />
+      </Routes>
+    </Router>
   );
 };
 
