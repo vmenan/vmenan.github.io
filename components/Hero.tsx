@@ -59,15 +59,65 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Terminal / Path block */}
-          <div className="bg-white/50 p-4 rounded-md border-l-4 border-black font-mono text-sm md:text-base text-gray-700 shadow-sm text-left w-full">
-            <div className="whitespace-pre overflow-x-auto leading-relaxed scrollbar-hide">
-              {PROFILE.path}
+          <div 
+            className="bg-gradient-to-br from-white to-yellow-50 border-2 border-black text-left inline-block overflow-hidden"
+            style={{ 
+              borderRadius: '10px',
+              transform: 'rotate(-0.5deg)',
+              boxShadow: '6px 6px 0px 0px rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            {/* macOS-style header */}
+            <div className="bg-gradient-to-b from-yellow-100 to-yellow-50 px-3 py-2 flex items-center gap-2 border-b-2 border-black">
+              <div className="w-3 h-3 rounded-full bg-red-400 border-2 border-black"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-400 border-2 border-black"></div>
+              <div className="w-3 h-3 rounded-full bg-green-400 border-2 border-black"></div>
+              <span className="ml-2 text-xs text-gray-600 font-mono font-bold">terminal</span>
+            </div>
+            
+            {/* Terminal content */}
+            <div className="p-3 font-mono text-xs md:text-sm leading-relaxed">
+              <div className="flex items-center gap-2">
+                <span className="text-orange-600 font-bold">$</span>
+                <span className="text-teal-600 font-semibold">pwd</span>
+              </div>
+              <div className="text-purple-600 mt-1 whitespace-nowrap font-medium">
+                {PROFILE.path.split('\n')[1]}
+              </div>
             </div>
           </div>
 
           {/* Bio */}
           <p className="text-lg md:text-xl font-hand leading-relaxed text-gray-800 pt-2 max-w-4xl">
-            {PROFILE.bio}
+            {(() => {
+              let bioText = typeof PROFILE.bio === 'string' ? PROFILE.bio : PROFILE.bio.text;
+              const links = typeof PROFILE.bio === 'object' ? PROFILE.bio.links : {};
+              
+              const parts = [];
+              let lastIndex = 0;
+              
+              Object.entries(links).forEach(([phrase, url]) => {
+                const index = bioText.indexOf(phrase, lastIndex);
+                if (index !== -1) {
+                  parts.push(bioText.substring(lastIndex, index));
+                  parts.push(
+                    <a 
+                      key={phrase}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-teal-600 hover:text-teal-700 underline decoration-2 underline-offset-2 transition-colors"
+                    >
+                      {phrase}
+                    </a>
+                  );
+                  lastIndex = index + phrase.length;
+                }
+              });
+              
+              parts.push(bioText.substring(lastIndex));
+              return parts;
+            })()}
           </p>
         </div>
 

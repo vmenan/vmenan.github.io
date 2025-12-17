@@ -22,8 +22,15 @@ export const PROFILE = {
     title: 'PyTorch Ambassador 2025-2026',
     credlyUrl: 'https://www.credly.com/badges/d0909cda-b87b-4ca8-8ddf-722d23c108ab/public_url'
   },
-  path: '$ pwd\n/PhD/Netherlands/UtrechtUniversity/NLPandSocietyLab/DataDivers',
-  bio: 'I am a PhD candidate at the NLP & Society Lab, Utrecht University, focusing on data diversity in training robust and fair language models. I am passionate about making AI more inclusive and equitable.',
+  path: '$ pwd\n/PhD/The_Netherlands/Utrecht_University/NLP_and_Society_Lab/Data_Divers',
+  bio: {
+    text: 'I am a PhD candidate at the NLP & Society Lab, Utrecht University, working on the DataDivers project under the supervision of Professor Dong Nguyen. My research focuses on data diversity for robust and fair language models, with an emphasis on inclusive and egalitarian AI.',
+    links: {
+      'NLP & Society Lab': 'https://nlpsoc.github.io/',
+      'DataDivers': 'https://datadivers-erc.github.io/',
+      'Dong Nguyen': 'https://www.dongnguyen.nl/'
+    }
+  }
 };
 export const QUOTES = [
   {
