@@ -8,18 +8,32 @@ export const RESEARCH_OVERVIEW = {
 
 export const PUBLICATIONS: Publication[] = [
   {
-    title: 'Quality Does Matter: A Detailed Look at the Quality and Utility of Web-Mined Parallel Corpora',
-    venue: 'EACL 2024',
-    date: 'March 2024',
+    title: 'Improving the Quality of Web-mined Parallel Corpora of Low-Resource Languages using Debiasing Heuristics',
+    authors: 'Aloka Fernando, Nisansa De Silva, Menan Velayuthan, Charitha Rathnayake, Surangika Ranathunga',
+    venue: 'EMNLP 2025',
+    date: 'November 2025',
     status: 'Published',
     description: '',
     links: {
-      paper: 'https://aclanthology.org/2024.eacl-long.52/',
+      paper: 'https://aclanthology.org/2025.emnlp-main.1435/',
       code: '#'
-    }
+    },
   },
   {
+    title: 'Encoder-Aware Sequence-Level Knowledge Distillation for Low-Resource Neural Machine Translation',
+    authors: 'Menan Velayuthan, Nisansa De Silva, Surangika Ranathunga',
+    venue: 'LowResMT@NAACL 2025',
+    date: 'April 2025',
+    status: 'Published',
+    description: '',
+    links: {
+      paper: 'https://aclanthology.org/2025.loresmt-1.15/',
+      code: '#'
+    },
+ },
+  {
     title: 'Egalitarian Language Representation in Language Models: It All Begins with Tokenizers',
+    authors: 'Menan Velayuthan, Kengatharaiyer Sarveswaran',
     venue: 'COLING 2025',
     date: 'January 2025',
     status: 'Published',
@@ -28,20 +42,10 @@ export const PUBLICATIONS: Publication[] = [
       paper: 'https://aclanthology.org/2025.coling-main.400/',
       code: '#'
     }
-  },
-  {
-    title: 'Encoder-Aware Sequence-Level Knowledge Distillation for Low-Resource Neural Machine Translation',
-    venue: 'LowResMT@NAACL 2025',
-    date: 'April 2025',
-    status: 'Published',
-    description: '',
-    links: {
-      paper: 'https://aclanthology.org/2025.loresmt-1.15/',
-      code: '#'
-    }
-  },
+   },
   {
     title: 'Back to the Stats: Rescuing Low Resource Neural Machine Translation with Statistical Methods',
+    authors: 'Menan Velayuthan, Dilith Jayakody, Nisansa de Silva, Aloka Fernando, Surangika Ranathunga',
     venue: 'WMT@EMNLP 2024',
     date: 'November 2024',
     status: 'Published',
@@ -52,18 +56,21 @@ export const PUBLICATIONS: Publication[] = [
     }
   },
   {
-    title: 'Egalitarian Language Representation in Language Models: It All Begins with Tokenizers',
-    venue: 'COLING 2025',
-    date: 'January 2025',
+    title: 'Quality Does Matter: A Detailed Look at the Quality and Utility of Web-Mined Parallel Corpora',
+    authors: 'Surangika Ranathunga, Nisansa de Silva, Menan Velayuthan, Aloka Fernando, Charitha Rathnayake',
+    venue: 'EACL 2024',
+    date: 'March 2024',
     status: 'Published',
+    award: 'Best Low Resource Paper Award',
     description: '',
     links: {
-      paper: 'https://aclanthology.org/2025.coling-main.400.pdf',
+      paper: 'https://aclanthology.org/2024.eacl-long.52/',
       code: '#'
     }
   },
   {
     title: 'DS-HPE: Deep Set for Head Pose Estimation',
+    authors: 'Menan Velayuthan, Asiri Gawesha, Pradeepa Samarasinghe, Dharshana Kasthurirathna',
     venue: 'CCWC 2023',
     date: 'March 2023',
     status: 'Published',
