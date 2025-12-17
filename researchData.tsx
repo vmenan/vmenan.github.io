@@ -94,6 +94,6 @@ export const PROJECTS: Project[] = [
 export const COLLABORATIONS: Collaboration[] = [
   {
     name: 'Collaboration with University of Jaffna',
-    description: 'I have collaborated with Dr Kengatharaiyer Sarveswaran on improving language modeling for complex scripted languages better.'
+    description: 'I have collaborated with Dr Kengatharaiyer Sarveswaran on making language modeling for complex scripted languages better.'
   }
 ];
