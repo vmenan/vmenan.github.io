@@ -64,6 +64,27 @@ const PublicationsPage: React.FC = () => {
           }} />
         </div>
 
+        {/* Note about selected publications */}
+        <div 
+          className="mb-12 bg-gradient-to-r from-yellow-50 to-white p-6 border-2 border-black rounded-lg"
+          style={{ 
+            boxShadow: '6px 6px 0px 0px rgba(0,0,0,0.1)',
+            transform: 'rotate(-0.5deg)'
+          }}
+        >
+          <p className="font-hand text-lg text-gray-800">
+            📚 These are selected publications. For my complete list, visit{' '}
+            <a 
+              href="https://scholar.google.com/citations?user=8dn_dfcAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-600 hover:text-teal-700 font-semibold transition-colors underline decoration-2 underline-offset-2"
+            >
+              Google Scholar
+            </a>.
+          </p>
+        </div>
+
         {/* Publications Section - Year Grouped Timeline */}
         <section className="mb-20">
           {sortedYears.map((year) => {
@@ -119,13 +140,32 @@ const PublicationsPage: React.FC = () => {
                             <h3 className="font-hand text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
                               {pub.title}
                             </h3>
-                            <p className="font-mono text-sm text-gray-600 mb-3">
-                              {pub.isPreprint ? 'Preprint' : pub.venue} • {pub.date.split(' ')[0]} {pub.status && `• ${pub.status}`}
-                            </p>
+                            {pub.authors && (
+                              <p className="font-hand text-lg text-gray-700 mb-2">
+                                {pub.authors.split('Menan Velayuthan').map((part, i, arr) => (
+                                  <React.Fragment key={i}>
+                                    {part}
+                                    {i < arr.length - 1 && <span className="text-teal-600">Menan Velayuthan</span>}
+                                  </React.Fragment>
+                                ))}
+                              </p>
+                            )}
+                            <div className="flex items-center gap-2 mb-3">
+                              <p className="font-mono text-sm text-gray-600">
+                                {pub.isPreprint ? 'Preprint' : pub.venue} • {pub.date.split(' ')[0]} {pub.status && `• ${pub.status}`}
+                              </p>
+                              {pub.award && (
+                                <span className="inline-flex items-center gap-1 bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-mono font-bold border border-yellow-400">
+                                  🏆 {pub.award}
+                                </span>
+                              )}
+                            </div>
                             <div className="flex flex-wrap gap-2">
                               {pub.links.paper && (
                                 <a 
-                                  href={pub.links.paper} 
+                                  href={pub.links.paper}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   className="inline-flex items-center gap-1 font-mono text-xs text-blue-600 hover:text-blue-800 transition-colors"
                                 >
                                   READ PAPER <ExternalLink className="w-3 h-3" />
@@ -135,7 +175,9 @@ const PublicationsPage: React.FC = () => {
                                 <>
                                   <span className="text-gray-300">|</span>
                                   <a 
-                                    href={pub.links.code} 
+                                    href={pub.links.code}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-1 font-mono text-xs text-gray-600 hover:text-gray-800 transition-colors"
                                   >
                                     CODE <ExternalLink className="w-3 h-3" />
@@ -146,7 +188,9 @@ const PublicationsPage: React.FC = () => {
                                 <>
                                   <span className="text-gray-300">|</span>
                                   <a 
-                                    href={pub.links.cite} 
+                                    href={pub.links.cite}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-1 font-mono text-xs text-gray-600 hover:text-gray-800 transition-colors"
                                   >
                                     CITE

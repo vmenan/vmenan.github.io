@@ -19,12 +19,14 @@ export interface NavItem {
 
 export interface Publication {
   title: string;
+  authors?: string;
   venue?: string;
   date: string;
   status?: string;
   description: string;
   featured?: boolean;
   isPreprint?: boolean;
+  award?: string;
   links: {
     paper?: string;
     code?: string;
