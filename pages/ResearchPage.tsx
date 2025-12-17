@@ -1,8 +1,18 @@
 import React from 'react';
 import Header from '../components/Header';
-import { BookOpen, ExternalLink, FileText, Award } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
+import { RESEARCH_OVERVIEW, PROJECTS, COLLABORATIONS } from '../researchData';
 
 const ResearchPage: React.FC = () => {
+  const getColorClasses = (theme: string) => {
+    const colors = {
+      yellow: { bg: 'from-white to-yellow-50', tag: 'bg-yellow-200' },
+      green: { bg: 'from-white to-green-50', tag: 'bg-green-200' },
+      blue: { bg: 'from-white to-blue-50', tag: 'bg-blue-200' },
+      purple: { bg: 'from-white to-purple-50', tag: 'bg-purple-200' }
+    };
+    return colors[theme as keyof typeof colors] || colors.yellow;
+  };
   return (
     <div className="min-h-screen bg-cream selection:bg-yellow-200 w-full">
       <Header />
@@ -28,126 +38,11 @@ const ResearchPage: React.FC = () => {
               Research Focus
             </h2>
             <p className="font-hand text-xl text-gray-700 leading-relaxed mb-4">
-              My research sits at the intersection of Natural Language Processing and societal structures, 
-              exploring how computational methods can be designed to respect and enhance human values.
+              {RESEARCH_OVERVIEW.focus}
             </p>
             <p className="font-hand text-lg text-gray-600 leading-relaxed">
-              I'm particularly interested in developing ethical frameworks for AI systems and understanding 
-              the broader implications of technology on society.
+              {RESEARCH_OVERVIEW.interests}
             </p>
-          </div>
-        </section>
-
-        {/* Publications Section */}
-        <section className="mb-20">
-          <div className="flex items-center gap-3 mb-10">
-            <FileText className="w-7 h-7 text-green-600" />
-            <h2 className="text-4xl font-hand font-bold">Publications</h2>
-          </div>
-
-          <div className="space-y-8">
-            
-            {/* Featured Publication */}
-            <div 
-              className="bg-gradient-to-br from-white to-blue-50 border-l-4 border-blue-600 p-8 rounded-lg hover:shadow-xl transition-all"
-              style={{ 
-                boxShadow: '8px 8px 0px 0px rgba(59, 130, 246, 0.15)' 
-              }}
-            >
-              <div className="flex items-start gap-3 mb-3">
-                <Award className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div className="flex-1">
-                  <h3 className="font-hand text-2xl font-bold text-gray-800 mb-2">
-                    Cognitive Density in Human-Computer Interaction
-                  </h3>
-                  <p className="font-mono text-sm text-blue-600 mb-4">
-                    CHI 2025 • October 2024 • [Accepted]
-                  </p>
-                </div>
-              </div>
-              <p className="font-hand text-lg text-gray-700 leading-relaxed mb-6">
-                This paper explores how cognitive load affects user interaction patterns in modern interfaces, 
-                introducing the concept of "cognitive density" as a measurable metric for interface design.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-hand text-base"
-                >
-                  Read Paper <ExternalLink className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition-colors font-hand text-base"
-                >
-                  View Code
-                </a>
-              </div>
-            </div>
-
-            {/* Regular Publications */}
-            <div 
-              className="bg-white border-l-4 border-gray-400 p-8 rounded-lg hover:shadow-lg transition-all"
-              style={{ 
-                boxShadow: '6px 6px 0px 0px rgba(0,0,0,0.06)' 
-              }}
-            >
-              <h3 className="font-hand text-2xl font-bold text-gray-800 mb-2">
-                Your Publication Title Here
-              </h3>
-              <p className="font-mono text-sm text-gray-500 mb-4">
-                Conference/Journal Name • Publication Date
-              </p>
-              <p className="font-hand text-lg text-gray-700 leading-relaxed mb-6">
-                A brief description of your research paper, its key findings, and contributions to the field.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 font-mono text-sm text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  READ PAPER <ExternalLink className="w-3 h-3" />
-                </a>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 font-mono text-sm text-gray-600 hover:text-gray-800 transition-colors"
-                >
-                  CITE
-                </a>
-              </div>
-            </div>
-
-            <div 
-              className="bg-white border-l-4 border-gray-400 p-8 rounded-lg hover:shadow-lg transition-all"
-              style={{ 
-                boxShadow: '6px 6px 0px 0px rgba(0,0,0,0.06)' 
-              }}
-            >
-              <h3 className="font-hand text-2xl font-bold text-gray-800 mb-2">
-                Another Research Paper
-              </h3>
-              <p className="font-mono text-sm text-gray-500 mb-4">
-                Conference/Journal Name • Publication Date
-              </p>
-              <p className="font-hand text-lg text-gray-700 leading-relaxed mb-6">
-                Another description highlighting the main contributions and impact of this work.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 font-mono text-sm text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  READ PAPER <ExternalLink className="w-3 h-3" />
-                </a>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 font-mono text-sm text-gray-600 hover:text-gray-800 transition-colors"
-                >
-                  CITE
-                </a>
-              </div>
-            </div>
-
           </div>
         </section>
 
@@ -157,49 +52,33 @@ const ResearchPage: React.FC = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            {/* Project Card 1 */}
-            <div 
-              className="bg-gradient-to-br from-white to-yellow-50 p-8 rounded-xl border-2 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
-              style={{ 
-                boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.1)',
-                borderRadius: '16px'
-              }}
-            >
-              <h3 className="font-hand text-2xl font-bold text-gray-800 mb-4">
-                Ethical NLP Frameworks
-              </h3>
-              <p className="font-hand text-lg text-gray-700 leading-relaxed mb-4">
-                Developing comprehensive frameworks for building NLP systems that prioritize human values, 
-                fairness, and societal impact.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-yellow-200 text-gray-800 text-xs font-mono rounded-full">NLP</span>
-                <span className="px-3 py-1 bg-yellow-200 text-gray-800 text-xs font-mono rounded-full">Ethics</span>
-                <span className="px-3 py-1 bg-yellow-200 text-gray-800 text-xs font-mono rounded-full">AI Safety</span>
-              </div>
-            </div>
-
-            {/* Project Card 2 */}
-            <div 
-              className="bg-gradient-to-br from-white to-green-50 p-8 rounded-xl border-2 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
-              style={{ 
-                boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.1)',
-                borderRadius: '16px'
-              }}
-            >
-              <h3 className="font-hand text-2xl font-bold text-gray-800 mb-4">
-                Your Project Title
-              </h3>
-              <p className="font-hand text-lg text-gray-700 leading-relaxed mb-4">
-                Brief description of your ongoing research project and its goals.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-green-200 text-gray-800 text-xs font-mono rounded-full">Tag1</span>
-                <span className="px-3 py-1 bg-green-200 text-gray-800 text-xs font-mono rounded-full">Tag2</span>
-              </div>
-            </div>
-
-            {/* Add more project cards as needed */}
+            {PROJECTS.map((project, index) => {
+              const colors = getColorClasses(project.colorTheme);
+              return (
+                <div 
+                  key={index}
+                  className={`bg-gradient-to-br ${colors.bg} p-8 rounded-xl border-2 border-black hover:translate-x-1 hover:translate-y-1 transition-transform`}
+                  style={{ 
+                    boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.1)',
+                    borderRadius: '16px'
+                  }}
+                >
+                  <h3 className="font-hand text-2xl font-bold text-gray-800 mb-4">
+                    {project.title}
+                  </h3>
+                  <p className="font-hand text-lg text-gray-700 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className={`px-3 py-1 ${colors.tag} text-gray-800 text-xs font-mono rounded-full`}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
 
           </div>
         </section>
@@ -216,18 +95,12 @@ const ResearchPage: React.FC = () => {
               Current partnerships include:
             </p>
             <ul className="space-y-3 font-hand text-lg text-gray-700">
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-500 mt-1">→</span>
-                <span>NLP & Society Lab, Utrecht University</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-500 mt-1">→</span>
-                <span>Your Collaboration Partner</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-yellow-500 mt-1">→</span>
-                <span>Another Research Group</span>
-              </li>
+              {COLLABORATIONS.map((collab, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="text-yellow-500 mt-1">→</span>
+                  <span>{collab.name}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </section>
