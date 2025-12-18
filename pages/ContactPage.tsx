@@ -76,7 +76,7 @@ const ContactPage: React.FC = () => {
         >
           <h3 className="font-hand text-2xl font-bold text-gray-800 mb-4">Response Time</h3>
           <p className="font-hand text-lg text-gray-700 leading-relaxed">
-            I typically respond to emails within 2-3 business days. For urgent matters, feel free to reach out via social media for a quicker response.
+            I typically respond to emails within 2-3 working days. For urgernt matter please use [URGENT] in the subject of the email.
           </p>
         </div>
 
