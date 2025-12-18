@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
       </main>
       
       <footer className="py-12 text-center text-gray-400 font-hand text-sm">
-        <p>&copy; {new Date().getFullYear()} Menan Velayutham. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Menan Velayuthan. All rights reserved.</p>
       </footer>
     </div>
   );
